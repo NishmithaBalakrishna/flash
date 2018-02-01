@@ -27,7 +27,7 @@ td {
 <title>Spring Boot</title>
 </head>
 <body>
-  <h1>Spring Boot - MVC web application example</h1>
+  <h1>CiniGene</h1>
   <hr>
 
   <div class="form">

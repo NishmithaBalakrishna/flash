@@ -22,10 +22,13 @@ background-color:darkblue;
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="style.css"></link>
 <title>Spring Boot</title>
+<script src="/lib/w3.js"></script>
 </head>
 <body>
-  <h1>Spring Boot - MVC web application example</h1>
+  <h1>CineGene</h1>
+  
   
   <hr>
 
