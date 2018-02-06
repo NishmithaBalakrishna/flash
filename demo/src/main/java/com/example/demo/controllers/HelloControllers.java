@@ -4,16 +4,31 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.RestTemplate;
+
+
 import java.util.ArrayList;
 
 //import com.hellokoding.springboot.Movie;
 
 @Controller
 public class HelloControllers {
+	
+	private String discoverURL = "https://api.themoviedb.org/3/discover/movie?api_key=4d4ed145d3584846f5922b6a467e1f85";
+	
+	
 	 @RequestMapping("/")
-	   public String index() {
-	      return "index";
-	   }
+	   public String index(Model model) {
+		 try {
+			 RestTemplate restTemplate = new RestTemplate();
+			 MovieList movieList = restTemplate.getForObject(discoverURL, MovieList.class);
+			 System.out.println(movieList);
+			 model.addAttribute("movieList", movieList);
+		 } catch (Exception e) {
+			 e.printStackTrace();
+		 }
+		 return "index";
+	 }
 
 	   @PostMapping("/hello")
 	   public String sayHello(@RequestParam("name") String name, Model model) {
