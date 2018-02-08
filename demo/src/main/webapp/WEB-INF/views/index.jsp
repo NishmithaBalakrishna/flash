@@ -38,27 +38,34 @@ td {
   <h1>CiniGene</h1>
   <hr>
 
-  <div class="form">
-    <form action="hello" method="post" onsubmit="return validate()">
-      <table>
-        <tr>
-          <td><font color="blue">Enter a Movie Name</td></font>
-          <td><input id="name" name="name"></td>
-          <td><input type="submit" value="Submit"></td>
-        </tr>
-      </table>
-    </form>
-  </div>
-  hi
-  
-test working
-${movieList}
+	<form method="post">
+	  <div class="row">
+	  <div class="col-lg-6">
+	    <div class="input-group">
+	      <span class="input-group-btn">
+	        <button class="btn btn-default" type="submit">Go!</button>
+	      </span>
+	      <input id="moviename" name="moviename" type="text" class="form-control" placeholder="Search for Movie">
+	    </div><!-- /input-group -->
+	  </div><!-- /.col-lg-6 -->
+	  <div class="col-lg-6">
+	    <div class="input-group">
+	      <input id= = "actor" name = "actor" type="text" class="form-control" placeholder="Search for Actor">
+	      <span class="input-group-btn">
+	        <button class="btn btn-default" type="submit">Go!</button>
+	      </span>
+	    </div><!-- /input-group -->
+	  </div><!-- /.col-lg-6 -->
+	</div><!-- /.row -->
+	</form>
+	</br>
+	
 	<c:if test="${not empty movieList}">
 		<ul>
 			<c:forEach var="movie" items="${movieList.results}">
 				  <div class="col-md-4">
     				<div class="thumbnail">
-      					<a href="/w3images/lights.jpg">
+      					<a href="/detail/${movie.id}">
         				<img src="https://image.tmdb.org/t/p/w342${movie.posterPath}" alt="${movie.title}" style="width:100%">
         				<div class="caption">
           					<p>${movie.id} Lorem ipsum...</p>
