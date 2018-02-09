@@ -10,6 +10,8 @@ public class DetailedMovie {
 	
 	private Long budget;
 	
+	private String overview;
+	
 	private Long id;
 	
 	private String title;
@@ -96,6 +98,12 @@ public class DetailedMovie {
 		this.voteCount = voteCount;
 	}
 
+	public String getOverview() {
+		return overview;
+	}
 
+	public void setOverview(String overview) {
+		this.overview = overview;
+	}
 	
 }
