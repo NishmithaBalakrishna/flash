@@ -70,22 +70,10 @@ public class HelloControllers {
 
 		  String url = "https://api.themoviedb.org/3/movie/" + id + "?api_key=4d4ed145d3584846f5922b6a467e1f85";
 			  
-		  DetailedMovie movieList = restTemplate.getForObject(url, DetailedMovie.class);
-
-		  movie.setDescription("Jungle book. Movie a year back.");
-	    	
-		  movie.setImageurl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROqluO8oseBM_Xa5TIuwdGID8gJWvAm2UT5fyGQMeY9IpUd0BrTw");
-	    	//model.addAttribute("name", name);
+		  DetailedMovie movieList = restTemplate.getForObject(url, DetailedMovie.class)
 	    	
 		  model.addAttribute("movie", movieList);
-	    	
-	    	
-		  Actor actor=new Actor();
-	    	actor.setName("ranveer");
-	    	model.addAttribute("actor",actor);
-	    	
-	    	ArrayList<String> list = actor.getList();
-	    	model.addAttribute("lists", list);
+	    
 
 	      return "detailedmovie";
 	      
