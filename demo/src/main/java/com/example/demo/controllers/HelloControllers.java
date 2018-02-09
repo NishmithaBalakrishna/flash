@@ -61,7 +61,7 @@ public class HelloControllers {
 	      return "hello";
 	   }
 	  
-		@RequestMapping("/detail/{id}")
+		/*@RequestMapping("/detail/{id}")
 	   public String getMovieDetail(@PathVariable ("id") String id, Model model) {
 
 		  Movie movie = new Movie();
@@ -91,7 +91,7 @@ DetailedMovie.class);
 
 	      return "detailedmovie";
 	      
-	   }
+	   }*/
 	
 	  
 }
