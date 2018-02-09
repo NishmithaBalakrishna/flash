@@ -91,7 +91,7 @@ DetailedMovie.class);
 
 	      return "detailedmovie";
 	      
-	   }*/
+	   }
 	
 	  
 }
