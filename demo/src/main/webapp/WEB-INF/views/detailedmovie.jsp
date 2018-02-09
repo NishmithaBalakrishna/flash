@@ -59,7 +59,7 @@ background-color:darkblue;
 							<span class="review-no">41 reviews</span>
 						</div>
 						<p class="product-description">${movie.tagline}</p>
-						
+						<p>Overview: ${movie.overview}</p>
 					</div>
 				</div>
 			</div>
