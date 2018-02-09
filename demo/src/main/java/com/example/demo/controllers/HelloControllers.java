@@ -61,7 +61,7 @@ public class HelloControllers {
 	      return "hello";
 	   }
 	  
-		/*@RequestMapping("/detail/{id}")
+		@RequestMapping("/detail/{id}")
 	   public String getMovieDetail(@PathVariable ("id") String id, Model model) {
 
 		  Movie movie = new Movie();
@@ -70,11 +70,9 @@ public class HelloControllers {
 
 		  String url = "https://api.themoviedb.org/3/movie/" + id + "?api_key=4d4ed145d3584846f5922b6a467e1f85";
 			  
-		  DetailedMovie movieList = restTemplate.getForObject(url, 
+		  DetailedMovie movieList = restTemplate.getForObject(url, DetailedMovie.class);
 
-DetailedMovie.class);
-
-		  movie.setDescription(url.overveiw);
+		  movie.setDescription("Jungle book. Movie a year back.");
 	    	
 		  movie.setImageurl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROqluO8oseBM_Xa5TIuwdGID8gJWvAm2UT5fyGQMeY9IpUd0BrTw");
 	    	//model.addAttribute("name", name);
@@ -82,7 +80,7 @@ DetailedMovie.class);
 		  model.addAttribute("movie", movieList);
 	    	
 	    	
-		  ActorList actor=new ActorList();
+		  Actor actor=new Actor();
 	    	actor.setName("ranveer");
 	    	model.addAttribute("actor",actor);
 	    	
@@ -91,7 +89,6 @@ DetailedMovie.class);
 
 	      return "detailedmovie";
 	      
-	   }*/
-	
+	   }
 	  
 }
