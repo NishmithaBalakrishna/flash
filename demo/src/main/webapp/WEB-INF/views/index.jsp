@@ -38,7 +38,7 @@ td {
   <h1>CiniGene</h1>
   <hr>
 
-	<form method="post">
+	  <form action="hello" method="post" onsubmit="return validate()">
 	  <div class="row">
 	  <div class="col-lg-6">
 	    <div class="input-group">
@@ -62,7 +62,9 @@ td {
 	
 	<c:if test="${not empty movieList}">
 		<ul>
-			<c:forEach var="movie" items="${movieList.results}">
+			<c:forEach var="movie" 
+
+items="${movieList.results}">
 				  <div class="col-md-4">
     				<div class="thumbnail">
       					<a href="/detail/${movie.id}">
@@ -77,7 +79,7 @@ td {
 		</ul>
 
 	</c:if>
-	</div>
+	
 
 </body>
 </html>
