@@ -26,28 +26,41 @@ public class HelloControllers {
 	
 	
 	@RequestMapping("/")
-	public String index(Model model, HttpServletRequest request) {
-		try {
-			String movieName = request.getParameter("moviename");
-
-			String actorName = request.getParameter("actor");
-			
-			RestTemplate restTemplate = new RestTemplate();
-			String url = discoverURL;
-			if(!StringUtils.isEmpty(movieName)) {
-				System.out.println(movieName);
-				url = searchURL + movieName +apiKey;
-				//https://api.themoviedb.org/3/discover/movie?api_key=4d4ed145d3584846f5922b6a467e1f85&query=minion
-			}
-			MovieList movieList = restTemplate.getForObject(url, MovieList.class);
-			System.out.println(movieList);
-			model.addAttribute("movieList", movieList);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	public String index(Model model) {
+		 try {
+			 RestTemplate restTemplate = new RestTemplate();
+			 MovieList movieList = restTemplate.getForObject(discoverURL, MovieList.class);
+			 System.out.println(movieList);
+			 model.addAttribute("movieList", movieList);
+		 } catch (Exception e) {
+			 e.printStackTrace();
+		 }
 		return "index";
 	}
+	 @PostMapping("/hello")
+	   public String sayHello( Model model, HttpServletRequest request) {
+		 try {
+	String movieName = request.getParameter("moviename");
 
+	
+	
+	RestTemplate restTemplate = new RestTemplate();
+	String url=discoverURL;
+	if(!StringUtils.isEmpty(movieName)) {
+		System.out.println(movieName);
+		url = searchURL + movieName +apiKey;//https://api.themoviedb.org/3/discover/movie?api_key=4d4ed145d3584846f5922b6a467e1f85&query=minion
+	}
+	MovieList movieList = restTemplate.getForObject(url, MovieList.class);
+	System.out.println(movieList);
+	model.addAttribute("movieList", movieList);
+} catch (Exception e) {
+	e.printStackTrace();
+}
+	
+			
+	      return "hello";
+	   }
+	  
 		@RequestMapping("/detail/{id}")
 	   public String getMovieDetail(@PathVariable ("id") String id, Model model) {
 
@@ -57,9 +70,11 @@ public class HelloControllers {
 
 		  String url = "https://api.themoviedb.org/3/movie/" + id + "?api_key=4d4ed145d3584846f5922b6a467e1f85";
 			  
-		  DetailedMovie movieList = restTemplate.getForObject(url, DetailedMovie.class);
+		  DetailedMovie movieList = restTemplate.getForObject(url, 
 
-		  movie.setDescription("Jungle book. Movie a year back.");
+DetailedMovie.class);
+
+		  movie.setDescription(url.overveiw);
 	    	
 		  movie.setImageurl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROqluO8oseBM_Xa5TIuwdGID8gJWvAm2UT5fyGQMeY9IpUd0BrTw");
 	    	//model.addAttribute("name", name);
@@ -67,7 +82,7 @@ public class HelloControllers {
 		  model.addAttribute("movie", movieList);
 	    	
 	    	
-		  Actor actor=new Actor();
+		  ActorList actor=new ActorList();
 	    	actor.setName("ranveer");
 	    	model.addAttribute("actor",actor);
 	    	
@@ -78,24 +93,5 @@ public class HelloControllers {
 	      
 	   }
 	
-	   @PostMapping("/hello")
-	   public String sayHello(@RequestParam("name") String name, Model model) {
-	      model.addAttribute("name", name);
-	      Movie movie = new Movie();
-	    	movie.setDescription("Jungle book. Movie a year back.");
-	    	movie.setImageurl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROqluO8oseBM_Xa5TIuwdGID8gJWvAm2UT5fyGQMeY9IpUd0BrTw");
-	    	//model.addAttribute("name", name);
-	    	model.addAttribute("movie", movie);
-	    	
-	    	Actor actor=new Actor();
-	    	actor.setName("ranveer");
-	    	model.addAttribute("actor",actor);
-	    	
-	    	ArrayList<String> list = actor.getList();
-	    	model.addAttribute("lists", list);
-
-	      return "hello";
-	      
-	   }
 	  
 }
