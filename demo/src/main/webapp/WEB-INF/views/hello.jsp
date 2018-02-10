@@ -74,6 +74,9 @@ items="${movieList.results}">
 		</ul>
 
 	</c:if>
-	
+	 <div>
+	<form>
+  <input type="button" value="Go back!" onclick="history.back()" style="float: right;" style="color:darkblue">
+		 </form></div>
 </body>
 </html> 
