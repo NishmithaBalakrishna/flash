@@ -11,21 +11,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 body {
-    background-color: darkblue;
+    background-color: lightgreen;
 }
 
 h1 {
-background-color:darkblue;
+background-color:lightgreen;
     color: white;
     text-align: center;
 }
 
-h2 {
-background-color:darkblue;
-    color:white;
-    font-family: Italic;
-    font-size: 20px;
-}
+
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="style.css"></link>
@@ -42,12 +37,12 @@ background-color:darkblue;
 					<div class="preview col-md-6">
 						
 						<div class="preview-pic tab-content">
-						  <div class="tab-pane active" id="pic-1"><img src="https://image.tmdb.org/t/p/w342${movie.posterPath}" /></div>
+						  <div class="tab-pane active" id="pic-1"><img src="https://image.tmdb.org/t/p/w342${movieList.posterPath}" /></div>
 						</div>
 						
 					</div>
 					<div class="details col-md-6">
-						<h3 class="product-title">${movie.title}</h3>
+						<h3 class="product-title">${movieList.title}</h3>
 						<div class="rating">
 							<div class="stars">
 								<span class="fa fa-star checked"></span>
@@ -59,12 +54,19 @@ background-color:darkblue;
 							<span class="review-no">41 reviews</span>
 						</div>
 						<p class="product-description">${movie.tagline}</p>
-						<p>Overview: ${movie.overview}</p>
+						<p>Status: ${movieList.status}</p>
+						<p>Average: ${movieList.voteAverage}</p>
+						<c:if test="${not empty movieList}"><ul>Genres:<c:forEach var="movie" items="${movieList.genres}">${movie.name} </c:forEach></ul></c:if>
+						<p>Overview:<br> ${movieList.overview}</p>
+						<c:if test="${not empty actorList}"><ul>Casts:<c:forEach var="movie" items="${actorList.casts}"><c:forEach var="actor" items="${actorList.castId}">${movie.character} as ${movie.name }<br></c:forEach ></c:forEach></ul></c:if>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
+<hr>
+<form>
+  <input type="button" value="Go back!" onclick="history.back()" style="float: right;" style="color:darkblue">
+</form>
 </body>
 </html>
