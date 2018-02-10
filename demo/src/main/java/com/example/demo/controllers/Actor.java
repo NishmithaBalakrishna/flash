@@ -1,10 +1,29 @@
 package com.example.demo.controllers;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Actor {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class ActorList {
+	
+
+	List<Movie> casts;
+
+	private String character;
 	
 	private String name;
+	
+	@JsonProperty("cast_id")
+	private String castId;
+	
+	public String getCharacter() {
+		return character;
+	}
+
+	public void setCharacter(String character) {
+		this.character = character;
+	}
 
 	public String getName() {
 		return name;
@@ -13,18 +32,15 @@ public class Actor {
 	public void setName(String name) {
 		this.name = name;
 	}
-	 public ArrayList<String> getList() {
 
-			ArrayList<String> list = new ArrayList<String>();
-			list.add("Kareena Kapoor");
-			list.add("Diana Penty");
-			list.add("Emmy Jackson");
-			list.add("Demi Lovato");
-			list.add("Charlie Puth");
-			list.add("Emma Heester");
-			list.add("Sidharth Malhotra");
+	public List<Movie> getCasts() {
+		return casts;
+	}
 
-			return list;
+	public void setCasts(List<Movie> casts) {
+		this.casts = casts;
+	}
 
-		}
+	
+		
 }
