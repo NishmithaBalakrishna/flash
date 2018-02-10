@@ -52,7 +52,7 @@ public class HelloControllers {
 	}
 	MovieList movieList = restTemplate.getForObject(url, MovieList.class);
 	System.out.println(movieList);
-	model.addAttribute("movie", movieList);
+	model.addAttribute("movieList", movieList);
 } catch (Exception e) {
 	e.printStackTrace();
 }
