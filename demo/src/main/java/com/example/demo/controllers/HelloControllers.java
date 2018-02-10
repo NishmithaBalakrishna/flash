@@ -52,7 +52,7 @@ public class HelloControllers {
 	}
 	MovieList movieList = restTemplate.getForObject(url, MovieList.class);
 	System.out.println(movieList);
-	model.addAttribute("movieList", movieList);
+	model.addAttribute("movie", movieList);
 } catch (Exception e) {
 	e.printStackTrace();
 }
@@ -70,13 +70,20 @@ public class HelloControllers {
 
 		  String url = "https://api.themoviedb.org/3/movie/" + id + "?api_key=4d4ed145d3584846f5922b6a467e1f85";
 			  
-		  DetailedMovie movieList = restTemplate.getForObject(url, DetailedMovie.class)
+		  DetailedMovie movieList = restTemplate.getForObject(url, DetailedMovie.class);
 	    	
-		  model.addAttribute("movie", movieList);
+		  model.addAttribute("movieList", movieList);
 	    
+		  RestTemplate restTemplate1 = new RestTemplate();
 
+		  String urll = "https://api.themoviedb.org/3/movie/" + id + "/casts?api_key=4d4ed145d3584846f5922b6a467e1f85";
+		 
+		  ActorList actorList = restTemplate1.getForObject(urll, ActorList.class);
+	    	
+		  model.addAttribute("actorList", actorList);
 	      return "detailedmovie";
 	      
 	   }
 	  
 }
+
