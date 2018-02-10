@@ -15,6 +15,16 @@ public class MovieList {
 	public void setVoteAverage(int voteAverage) {
 		this.voteAverage = voteAverage;
 	}
+	
+	@JsonProperty("poster_path")
+	private String posterPath;
+	
+	public String getPosterPath() {
+		return posterPath;
+	}
+	public void setPosterPath(String posterPath) {
+		this.posterPath = posterPath;
+	}
 	private String status;
 	
 	public String getStatus() {
