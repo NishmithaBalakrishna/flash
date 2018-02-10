@@ -1,5 +1,7 @@
 package com.example.demo.controllers;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class DetailedMovie {
@@ -8,6 +10,19 @@ public class DetailedMovie {
 	@JsonProperty("backdrop_path")
 	private String backdropPath;
 	
+	 private String name;
+	 
+	 public int getVoteAverage() {
+		return voteAverage;
+	}
+
+	public void setVoteAverage(int voteAverage) {
+		this.voteAverage = voteAverage;
+	}
+
+	@JsonProperty("vote_average")
+		int voteAverage;
+
 	private Long budget;
 	
 	private String overview;
@@ -26,6 +41,9 @@ public class DetailedMovie {
 	
 	@JsonProperty("poster_path")
 	private String posterPath;
+	
+	List<Movie> genres;
+
 	
 	public boolean isAdult() {
 		return adult;
@@ -97,7 +115,20 @@ public class DetailedMovie {
 	public void setVoteCount(String voteCount) {
 		this.voteCount = voteCount;
 	}
+	public List<Movie> getGenres() {
+		return genres;
+	}
 
+	public void setGenres(List<Movie> genres) {
+		this.genres = genres;
+	}
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getOverview() {
 		return overview;
 	}
@@ -106,4 +137,5 @@ public class DetailedMovie {
 		this.overview = overview;
 	}
 	
+
 }
