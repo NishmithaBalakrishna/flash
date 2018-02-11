@@ -21,6 +21,15 @@ public class Movie {
 	private String imageurl;
 	
 	private String name;
+	private String character;
+	
+	public String getCharacter() {
+		return character;
+	}
+
+	public void setCharacter(String character) {
+		this.character = character;
+	}
 	
 	public String getName() {
 		return name;
