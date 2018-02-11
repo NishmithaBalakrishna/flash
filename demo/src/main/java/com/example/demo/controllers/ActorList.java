@@ -8,14 +8,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ActorList {
 	
 
-	List<Movie> casts;
+	List<Movie> cast;
 
 	private String character;
-	
-	private String name;
-	
-	@JsonProperty("cast_id")
-	private String castId;
 	
 	public String getCharacter() {
 		return character;
@@ -24,6 +19,12 @@ public class ActorList {
 	public void setCharacter(String character) {
 		this.character = character;
 	}
+	private String name;
+	
+	@JsonProperty("cast_id")
+	private String castId;
+	
+	
 
 	public String getName() {
 		return name;
@@ -33,12 +34,12 @@ public class ActorList {
 		this.name = name;
 	}
 
-	public List<Movie> getCasts() {
-		return casts;
+	public List<Movie> getCast() {
+		return cast;
 	}
 
-	public void setCasts(List<Movie> casts) {
-		this.casts = casts;
+	public void setCast(List<Movie> cast) {
+		this.cast = cast;
 	}
 
 	
