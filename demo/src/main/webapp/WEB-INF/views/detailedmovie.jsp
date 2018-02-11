@@ -58,7 +58,7 @@ background-color:lightgreen;
 						<p>Average: ${movieList.voteAverage}</p>
 						<c:if test="${not empty movieList}"><ul>Genres:<c:forEach var="movie" items="${movieList.genres}">${movie.name} </c:forEach></ul></c:if>
 						<p>Overview:<br> ${movieList.overview}</p>
-						<c:if test="${not empty actorList}"><ul>Casts:<c:forEach var="movie" items="${actorList.casts}"><c:forEach var="actor" items="${actorList.castId}">${movie.character} as ${movie.name }<br></c:forEach ></c:forEach></ul></c:if>
+						<c:if test="${not empty actorList}"><ul>Casts:<c:forEach var="movie" items="${actorList.cast}">${movie.character} as ${movie.name }<br></c:forEach ></ul></c:if>
 					</div>
 				</div>
 			</div>
