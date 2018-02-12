@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ActorList {
 	
 
-	List<Movie> cast;
+	List<Actor> cast;
 
 	private String character;
 	
@@ -21,6 +21,24 @@ public class ActorList {
 	}
 	private String name;
 	
+	@JsonProperty("profile_path")
+	private String profilePath;
+	
+	public String getProfilePath() {
+		return profilePath;
+	}
+
+	public void setProfilePath(String profilePath) {
+		this.profilePath = profilePath;
+	}
+
+	public String getCastId() {
+		return castId;
+	}
+
+	public void setCastId(String castId) {
+		this.castId = castId;
+	}
 	@JsonProperty("cast_id")
 	private String castId;
 	
@@ -34,11 +52,11 @@ public class ActorList {
 		this.name = name;
 	}
 
-	public List<Movie> getCast() {
+	public List<Actor> getCast() {
 		return cast;
 	}
 
-	public void setCast(List<Movie> cast) {
+	public void setCast(List<Actor> cast) {
 		this.cast = cast;
 	}
 

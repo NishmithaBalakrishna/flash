@@ -40,50 +40,49 @@ public class HelloControllers {
 	 @PostMapping("/hello")
 	   public String sayHello( Model model, HttpServletRequest request) {
 		 try {
-	String movieName = request.getParameter("moviename");
+			 String movieName = request.getParameter("moviename");
 
 	
 	
-	RestTemplate restTemplate = new RestTemplate();
-	String url=discoverURL;
-	if(!StringUtils.isEmpty(movieName)) {
-		System.out.println(movieName);
-		url = searchURL + movieName +apiKey;//https://api.themoviedb.org/3/discover/movie?api_key=4d4ed145d3584846f5922b6a467e1f85&query=minion
-	}
-	MovieList movieList = restTemplate.getForObject(url, MovieList.class);
-	System.out.println(movieList);
-	model.addAttribute("movieList", movieList);
-} catch (Exception e) {
-	e.printStackTrace();
-}
+			 RestTemplate restTemplate = new RestTemplate();
+			 String url=discoverURL;
+			 if(!StringUtils.isEmpty(movieName)) {
+				 System.out.println(movieName);
+				 url = searchURL + movieName +apiKey;//https://api.themoviedb.org/3/discover/movie?api_key=4d4ed145d3584846f5922b6a467e1f85&query=minion
+			 }
+			 MovieList movieList = restTemplate.getForObject(url, MovieList.class);
+			 System.out.println(movieList);
+			 model.addAttribute("movieList", movieList);
+		 } catch (Exception e) {
+			 e.printStackTrace();
+		 }
 	
-			
-	      return "hello";
-	   }
+		 return "hello";
+	 }
 	  
-		@RequestMapping("/detail/{id}")
-	   public String getMovieDetail(@PathVariable ("id") String id, Model model) {
 
-		  Movie movie = new Movie();
-			
-		  RestTemplate restTemplate = new RestTemplate();
+	 @RequestMapping("/detail/{id}")
+	 public String getMovieDetail(@PathVariable ("id") String id, Model model) {
 
-		  String url = "https://api.themoviedb.org/3/movie/" + id + "?api_key=4d4ed145d3584846f5922b6a467e1f85";
-			  
-		  DetailedMovie movieList = restTemplate.getForObject(url, DetailedMovie.class);
-	    	
-		  model.addAttribute("movieList", movieList);
-	    
-		  RestTemplate restTemplate1 = new RestTemplate();
 
-		  String urll = "https://api.themoviedb.org/3/movie/" + id + "/casts?api_key=4d4ed145d3584846f5922b6a467e1f85";
+		 RestTemplate restTemplate = new RestTemplate();
 		 
-		  ActorList actorList = restTemplate1.getForObject(urll, ActorList.class);
+		 String url = "https://api.themoviedb.org/3/movie/" + id + "?api_key=4d4ed145d3584846f5922b6a467e1f85";
+		  
+		 DetailedMovie movieList = restTemplate.getForObject(url, DetailedMovie.class);
+
+		 model.addAttribute("movieList", movieList);
+	    
+		 RestTemplate restTemplate1 = new RestTemplate();
+
+		 String urll = "https://api.themoviedb.org/3/movie/" + id + "/casts?api_key=4d4ed145d3584846f5922b6a467e1f85";
+		 
+		 ActorList actorList = restTemplate1.getForObject(urll, ActorList.class);
 	    	
-		  model.addAttribute("actorList", actorList);
-	      return "detailedmovie";
-	      
-	   }
+		 model.addAttribute("actorList", actorList);
+	     
+		 return "detailedmovie";
+	 }
 	  
 }
 
