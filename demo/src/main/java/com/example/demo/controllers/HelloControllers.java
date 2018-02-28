@@ -80,6 +80,14 @@ public class HelloControllers {
 		 ActorList actorList = restTemplate1.getForObject(urll, ActorList.class);
 	    	
 		 model.addAttribute("actorList", actorList);
+		 
+		 RestTemplate restTemplate11 = new RestTemplate();
+
+		 String urll1 = "http://api.themoviedb.org/3/movie/"+ id +"/reviews?api_key=4d4ed145d3584846f5922b6a467e1f85";
+		 
+		 ReviewsList review = restTemplate11.getForObject(urll1, ReviewsList.class);
+	    	
+		 model.addAttribute("review", review );
 	     
 		 return "detailedmovie";
 	 }
