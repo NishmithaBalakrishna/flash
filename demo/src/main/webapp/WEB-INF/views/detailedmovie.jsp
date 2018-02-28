@@ -19,6 +19,9 @@ height:50%;
 .img {
 height:50%;
 }
+.checked {
+    color: orange;
+}
 .title
 {
   padding: 28px;
@@ -103,7 +106,7 @@ $(document).ready(function () {
 								<span class="fa fa-star"></span>
 								<span class="fa fa-star"></span>
 							</div>
-							<span class="review-no">41 reviews</span>
+							<p>${review.totalResults} reviews</p>
 						</div>
 						<p class="product-description">${movie.tagline}</p>
 						<p>Status: ${movieList.status}</p>
